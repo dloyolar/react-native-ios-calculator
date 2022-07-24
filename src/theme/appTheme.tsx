@@ -40,5 +40,6 @@ export const styles = StyleSheet.create({
     fontSize: 30,
     color: 'white',
     fontWeight: '500',
+    textTransform: 'capitalize',
   },
 });

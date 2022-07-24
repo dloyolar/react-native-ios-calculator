@@ -34,7 +34,7 @@ export const CalculatorScreen = () => {
         <ButtonCalc text="+" color="#FF9427" />
       </View>
       <View style={styles.row}>
-        <ButtonCalc text="0" />
+        <ButtonCalc text="0" large />
         <ButtonCalc text="." />
         <ButtonCalc text="=" color="#FF9427" />
       </View>
