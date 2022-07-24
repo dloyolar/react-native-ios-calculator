@@ -2,7 +2,7 @@
 
 Calcultator based on iOS Calculator APP in React Native for IOS and Android
 
-## Demo
+## Demo Images
 
 ![image](./simulator1.png)
 ![image](./simulator2.png)
