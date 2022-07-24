@@ -11,8 +11,33 @@ export const CalculatorScreen = () => {
     setNumber('0');
   };
 
-  const buildNumber = (textNumber: string) => {
-    setNumber(number + textNumber);
+  const buildNumber = (value: string) => {
+    if (number.includes('.') && value === '.') {
+      return;
+    }
+    if (number.startsWith('0') || number.startsWith('-0')) {
+      if (value === '.' || number.includes('.')) {
+        setNumber(number + value);
+      } else {
+        setNumber(value);
+      }
+      return;
+    }
+
+    setNumber(number + value);
+  };
+
+  const onDelete = () => {
+    if (number.length === 1 || (number.length === 2 && number.includes('-'))) {
+      return setNumber('0');
+    }
+    setNumber(number.slice(0, -1));
+  };
+
+  const positiveNegative = () => {
+    number.includes('-')
+      ? setNumber(number.replace('-', ''))
+      : setNumber('-' + number);
   };
 
   return (
@@ -24,8 +49,8 @@ export const CalculatorScreen = () => {
 
       <View style={styles.row}>
         <ButtonCalc text="C" color="#9B9B9B" action={clean} />
-        <ButtonCalc text="+/-" color="#9B9B9B" action={clean} />
-        <ButtonCalc text="del" color="#9B9B9B" action={clean} />
+        <ButtonCalc text="+/-" color="#9B9B9B" action={positiveNegative} />
+        <ButtonCalc text="del" color="#9B9B9B" action={onDelete} />
         <ButtonCalc text="/" color="#FF9427" action={clean} />
       </View>
       <View style={styles.row}>
